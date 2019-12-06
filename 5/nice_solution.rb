@@ -64,9 +64,9 @@ end
 program = File.read("input").chomp.split(",").map(&:to_i)
 compiler = Compiler.new(input: 5, program: program)
 
-compiler.register(1, ->(a, b, pointer){ write(destination, a + b)})
-compiler.register(2, ->(a, b, pointer){ write(destination, a * b)})
-compiler.register(3, ->(destination)  { write(destination, @input)})
+compiler.register(1, ->(a, b, pointer){ write(pointer, a + b)})
+compiler.register(2, ->(a, b, pointer){ write(pointer, a * b)})
+compiler.register(3, ->(destination)  { write(pointer, @input)})
 compiler.register(4, ->(a)            { puts a })
 compiler.register(5, ->(a, pointer)   { set_instruction_pointer(pointer) if a != 0 })
 compiler.register(6, ->(a, pointer)   { set_instruction_pointer(pointer) if a == 0 })
