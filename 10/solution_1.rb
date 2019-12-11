@@ -23,6 +23,7 @@ coords = asteroids.map do |i|
   [angles.count, i]
 end
 
+# Pick the best asteroid
 max = 0
 best_pos = nil
 coords.each do |coord|
